@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Поисковик теплиц</title>
+    <link rel="stylesheet" href="node_modules/ol/ol.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="half">
+            <h4>Карта</h4>
+            <div id="roadMap" class="map"></div>
+        </div>
+        <div class="half">
+            <h4>Спутник</h4>
+            <div id="aerialMap" class="map"></div>
+        </div>
+    </div>
+
+    <div id="toolsDiv">
+        <div>
+            <p>Для выделения области на карте зажмите alt</p>
+            <p id="pointSelectHint">Чтобы включить/выключить режим выделения точек нажмите enter 🔴</p>
+            <button id="clearSelectionButton">Очистить выделение</button>
+            <button id="clearConturButton">Очистить контуры</button>
+            <button id="clearPoints">Очистить точки</button>
+            <br>
+        </div>
+
+        <div id="coordinates"></div>
+
+        <div>
+            <form>
+                <label for="latitude">Долгота:</label>
+                <input type="text" id="latitude" name="latitude">
+                <br>
+                <label for="longitude">Широта:</label>
+                <input type="text" id="longitude" name="longitude">
+                <br>
+                <button type="button" id="showOnMapButton">Показать на карте</button>
+            </form>
+        </div>
+
+        <div>
+            <button id="saveMapButton">Сохранить карту</button>
+            <br>
+            <label for="checkbox1" class="checkbox-label">
+                <input type="checkbox" id="checkbox1" name="checkbox1"> Дорожная карта (Rmap)
+            </label>
+            <br>
+            <label for="checkbox2" class="checkbox-label">
+                <input type="checkbox" id="checkbox2" name="checkbox2" checked> Спутниковая карта (Amap)
+            </label>
+
+            <a id="RmapDownload" download="Rmap.png"></a>
+            <a id="AmapDownload" download="Amap.png"></a>
+        </div>
+        <br>
+        <div id="tileButtons">
+            <button id="makeTilesButton">Разбить на тайлы</button>
+            <button id="drawContursButton">Выделить контуры</button>
+            <input type="file" id="file-input">
+            <button id="makeHandSelection">Ручной режим</button>
+            <button id="getPoints">Получить точки</button>
+            <button id="switchDebug">Debug info</button>
+            
+        </div>
+
+    </div>
+
+    <div id="handSelectDiv" displat="none">
+        <button id="nextTile">Следующий</button>
+        <button id="endHandSelect">Закончить</button>
+        <br>
+        <p id="pointSelectHint2">Чтобы включить/выключить режим выделения точек нажмите enter 🔴</p>
+        <button id="showContursInHandSelect">Выделить контуры</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
